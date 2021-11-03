@@ -1,0 +1,20 @@
+{
+  "name": "Proyecto-DAW",
+  "version": "1.0.0",
+  "description": "Proyecto fin de ciclo de DAW",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonio-aguilar/Proyecto-DAW.git"
+  },
+  "keywords": [],
+  "author": "Antonio Aguilar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonio-aguilar/Proyecto-DAW/issues"
+  },
+  "homepage": "https://github.com/antonio-aguilar/Proyecto-DAW#readme"
+}
