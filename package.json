@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/antonio-aguilar/Proyecto-DAW/issues"
   },
-  "homepage": "https://github.com/antonio-aguilar/Proyecto-DAW#readme"
+  "homepage": "https://github.com/antonio-aguilar/Proyecto-DAW#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }
