@@ -10,19 +10,19 @@ if (isset($_SESSION['usuario'])) {
     header("Location: index.php");
 }
 
-// Encabezado de la web
-encabezado();
-
 // Funciones necesarias
 function user($bd) {
     
     // Sentencia sql para listar los usuarios
     $sql = "SELECT usuario, contrasena FROM usuarios WHERE usuario = :usuario";
     // Preparamos y ejecutamos la consulta sql
+    echo  $sql; print_r ($_POST);
+
     $consulta = $bd->prepare($sql);
     $consulta->execute(["usuario" => $_POST['usuario']]);
     $usuario = $consulta->fetch(PDO::FETCH_OBJ);
-    // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos
+    // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos 
+    print_r ($usuario);
     if (!empty($usuario) and password_verify($_POST['password'], $usuario->contrasena)) {
         $_SESSION['usuario'] = $usuario->usuario;
         header("Location: index.php");
@@ -32,6 +32,14 @@ function user($bd) {
     }
 
 }
+
+if (isset($_POST["login"])) {
+    user($bd);
+}
+
+// Encabezado de la web
+encabezado();
+
 // Titulo  
 echo "<h3>Login sesion</h3>";
 
@@ -41,10 +49,6 @@ echo "<p>Usuario: <input type=\"text\" name=\"usuario\" required></p>";
 echo "<p>Contraseña: <input type=\"password\" name=\"password\" required></p>";
 echo "<p><input class=\"boton_personalizado\" type=\"submit\" name=\"login\" value=\"login\"></p>";
 echo "</form>";
-
-if (isset($_POST["login"])) {
-    user($bd);
-}
 
 // Pie de la web
 pie();
