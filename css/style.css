@@ -1,0 +1,88 @@
+#main {
+    width: 1000px;
+    margin: auto;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+    background-color: #ffffff;
+    padding: 4px 20px;
+}
+
+body {
+    background-color: #333;
+    margin: 0px;
+    font-family: Verdana,sans-serif;
+}
+
+#container {
+    background-color: #EEE;
+}
+
+header {
+    background-color: #333;
+    color: #EEE;
+    padding: 2px 10px;
+    border-bottom: 5px solid #0b08c2;
+    text-align: right;
+}
+
+header h1 {
+    margin: 0px;
+    font-size: 40px;
+    text-align: center;
+}
+
+h2, h3, h4 {
+    font-family: "Segoe UI",Arial,sans-serif;
+    text-transform: uppercase;
+}
+
+a {
+    color: #0b08c2;
+    text-decoration: none;
+}
+
+header a, footer a {
+    color: #EEE;
+}
+
+h2>a, h3>a {
+    font-weight: 800;
+    color: #333;
+}
+
+#main h2 {
+    font-size: 30px;
+}
+
+h3 {
+    /*font-size: 20px;*/
+    color: blue;
+}
+
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+.boton_personalizado:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+}
+
+footer {
+    border-top: 5px solid #0b08c2;
+    text-align: center;
+    padding: 5px 5px;
+    color: #EEE;
+    font-size: 10px;
+}
+
+footer span {
+    padding-left: 5px;
+    border-left: 1px solid #0b08c2;
+}
