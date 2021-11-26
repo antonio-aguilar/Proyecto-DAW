@@ -1,0 +1,16 @@
+¡Creado!
+Ha creado con éxito una nueva base de datos. Los detalles se encuentran a continuación.
+
+Nombre de usuario: UdabIuQ6Fy
+
+Nombre de la base de datos: UdabIuQ6Fy
+
+Contraseña: i7SJ4ho90y
+
+Servidor: remotemysql.com
+
+Puerto: 3306
+
+Estos son el nombre de usuario y la contraseña para iniciar sesión en su base de datos y phpMyAdmin
+
+Asegúrese de mantener segura su contraseña. Asegúrese de mantener copias de seguridad de su base de datos en caso de que se elimine.
