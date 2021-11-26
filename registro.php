@@ -3,6 +3,7 @@ session_start();
 
 // Archivos requeridos en la web
 require_once "funciones.php";
+require_once "bbdd/bd.php";
 
 // Si el usuario ya esta logueado lo lleva al index del tiron
 if (isset($_SESSION['usuario'])) {
@@ -15,37 +16,29 @@ encabezado();
 // Funciones necesarias
 function registro($bd) {
     
-    // Registrar usuarios en la web
-    if(isset($_POST['registro'])) { 
-        if($_POST['usuario'] == '' or $_POST['password'] == '' or $_POST['repassword'] == '' or $_POST['nombre'] == '' or $_POST['email'] == '') { 
-            echo 'Por favor llene todos los campos.'; 
-        } else { 
-            $sql = 'SELECT * FROM usuarios'; 
-            $rec = mysql_query($sql); 
-            $verificar_usuario = 0; 
-            while($result = mysql_fetch_object($rec)) { 
-                if($result->usuario == $_POST['usuario']) { 
-                    $verificar_usuario = 1; 
-                } 
-            } 
-            if($verificar_usuario) { 
-                if($_POST['password'] == $_POST['repassword']) { 
-                    $usuario = $_POST['usuario']; 
-                    $password = $_POST['password']; 
-                    $nombre =$_POST['nombre'];
-                    $email = $_POST['email'];
-                    $sql = "INSERT INTO usuarios (usuario,password,nombre,email) VALUES ('$usuario','$password','$nombre','$email')"; 
-                    mysql_query($sql); 
-                    echo 'Usted se ha registrado correctamente.'; 
-                } else { 
-                    echo 'Las claves no son iguales, intente nuevamente.'; 
-                } 
-            } else {
-                echo 'Este usuario ya ha sido registrado anteriormente.'; 
-            } 
-        } 
-    }
+    $stmt = $db->prepare("INSERT INTO users(username,password,email,name) VALUES (:username,:hash_password,:email,:name)");
+    $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
+    $hash_password= hash('sha256', $password); //Password encryption
+    $stmt->bindParam("hash_password", $hash_password,PDO::PARAM_STR) ;
+    $stmt->bindParam("email", $email,PDO::PARAM_STR) ;
+    $stmt->bindParam("name", $name,PDO::PARAM_STR) ;
+    $stmt->execute();
 
+    INSERT INTO `usuarios` (`ID_USUARIO`, `USUARIO`, `CONTRASENA`, `NOMBRE`, `EMAIL`) VALUES (NULL, '', '', '', '')
+
+  if (!empty($_POST['usuario']) && !empty($_POST['contrasena']) && !empty($_POST['nombre']) && !empty($_POST['email'])) {
+    $sql = "INSERT INTO usuarios (usuario, contrasena, nombre, email) VALUES (:usuario, :contrasena, :nombre, :email)";
+    $stmt = $bd->prepare($sql);
+    $stmt->bindParam(':email', $_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':password', $password);
+
+    if ($stmt->execute()) {
+      $message = 'Successfully created new user';
+    } else {
+      $message = 'Sorry there must have been an issue creating your account';
+    }
+  }
 }
 // Titulo  
 echo "<h3>Registro de Usuario</h3>";

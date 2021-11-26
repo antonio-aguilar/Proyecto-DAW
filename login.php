@@ -15,14 +15,11 @@ function user($bd) {
     
     // Sentencia sql para listar los usuarios
     $sql = "SELECT usuario, contrasena FROM usuarios WHERE usuario = :usuario";
-    // Preparamos y ejecutamos la consulta sql
-    echo  $sql; print_r ($_POST);
-
+    // Consultas
     $consulta = $bd->prepare($sql);
     $consulta->execute(["usuario" => $_POST['usuario']]);
     $usuario = $consulta->fetch(PDO::FETCH_OBJ);
-    // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos 
-    print_r ($usuario);
+    // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos
     if (!empty($usuario) and password_verify($_POST['password'], $usuario->contrasena)) {
         $_SESSION['usuario'] = $usuario->usuario;
         header("Location: index.php");

@@ -164,13 +164,13 @@ function añadirTarea($bd, $titulo, $descripcion, $f_inicio, $f_fin) {
 /* ----------------------------------- UPDATE completadas ----------------------------------- */
 // Funcion para modificar si una tarea esta completada
 function modificarCompletadas($bd,$id) {
-  $modificaCompletada = $bd->exec("UPDATE `tareas` SET `completada` = '1' WHERE `tareas`.`id` = $id");
+  $modificaCompletada = $bd->exec("UPDATE `tareas` SET `completada` = '1' WHERE `tareas`.`id_tarea` = $id");
 }
 
 /* ----------------------------------- BORRAR TAREAS ----------------------------------- */
 // Funcion para borrar tareas
 function borrarTareas($bd,$id) {
-  $borrar = $bd->exec("DELETE FROM `lista_tareas` WHERE `tareas`.`id_tarea` = $id");
+  $borrar = $bd->exec("DELETE FROM `tareas` WHERE `tareas`.`id_tarea` = $id");
 }
 
 
@@ -182,14 +182,14 @@ function listarUsuarios($bd) {
 
   echo "<h3>Listado de usuarios</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT usuario, nombre, email FROM usuarios";
+  $sql = "SELECT usuario, nombre, contrasena, email FROM usuarios";
 
   // Encabezado de la tabla
   echo "<table border=1 cellpadding=4 cellspacing=0>";
   echo "<tr>
   <th colspan=5> Usuarios </th>
   <tr>
-  <th> Usuario </th><th> Nombre </th> <th> email </th> 
+  <th> Usuario </th><th> Nombre </th><th> Contraseña </th> <th> email </th> 
   </tr>";
 
   // mostramos los datos en una tabla
