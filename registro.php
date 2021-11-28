@@ -7,7 +7,7 @@ require_once "bbdd/bd.php";
 
 // Si el usuario ya esta logueado lo lleva al index del tiron
 if (isset($_SESSION['usuario'])) {
-    header("Location: index.php");
+    header("Location: usuarios.php");
 }
 
 // Encabezado de la web
@@ -25,14 +25,12 @@ function registro($bd) {
   $sql = "INSERT INTO usuarios VALUES ($usuario,$contrasena,$nombre,$email)";
   //echo $consulta;
 
-  /*if ($usuario == $consulta) {
-    echo "No se puede insertar el usuario $usuario";
-  }*/
-  if ($sql = $bd->exec($sql)) {
+  
+  /*if ($sql = $bd->exec($sql)) {
     echo ("Usuario registrado con éxito");
   } else {
     echo ("Ha habido un error insertando el usuario");
-  }
+  }*/
 }
 
 // Titulo  

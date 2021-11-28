@@ -5,9 +5,9 @@ session_start();
 require_once "funciones.php";
 require_once "bbdd/bd.php";
 
-// Si el usuario ya esta logueado lo lleva al index del tiron
+// Si el usuario ya esta logueado lo lleva la pagina de las tareas del tiron
 if (isset($_SESSION['usuario'])) {
-    header("Location: index.php");
+    header("Location: tareas.php");
 }
 
 // Funciones necesarias
@@ -22,7 +22,7 @@ function user($bd) {
     // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos
     if (!empty($usuario) and password_verify($_POST['password'], $usuario->contrasena)) {
         $_SESSION['usuario'] = $usuario->usuario;
-        header("Location: index.php");
+        header("Location: tareas.php");
     } else {
         //echo 'Usuario o clave incorrectos';
         echo "<script>alert('Error: usuario y/o clave incorrectos!!');</script>";

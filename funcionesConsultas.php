@@ -10,14 +10,14 @@ function listarTareas($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 1";
+  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
 
   // Encabezado de la tabla
   echo "<table border=1 cellpadding=4 cellspacing=0>";
   echo "<tr>
   <th colspan=8> Tareas </th>
   <tr>
-  <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
+    <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
   </tr>"; //<th> Completar tarea </th> <th> Borrar tarea </th>
 
   // mostramos los datos en una tabla
@@ -144,7 +144,7 @@ function mostrarFormularioTareas() {
   // Titulo  
   echo "<h3>Añadir tarea</h3>";
 
-  // Formulario
+  // Formulario  tareas
   echo "<form name=\"formulario1\" action=\"index.php\" method=\"post\">";
   echo "<p>Titulo: <input type=\"text\" name=\"titulo\"></p>";
   echo "<p>Descripción: <input type=\"text\" name=\"descripcion\"></p>";
@@ -173,6 +173,13 @@ function borrarTareas($bd,$id) {
   $borrar = $bd->exec("DELETE FROM `tareas` WHERE `tareas`.`id_tarea` = $id");
 }
 
+/* ---------------------------------------------------------------------- Funciones Actualizar Tareas ---------------------------------------------------------------------- */
+
+// Funcion para modificar las tareas, ya sea el titulok la descripcion, la fecha de fin
+function modificarTarea($bd,$id) {
+  $modificarTareas = $bd->exec("UPDATE `tareas` SET `TITULO` = $titulo, `DESCRIPCION` = $descripcion, `F_FIN` = $f_fin WHERE `tareas`.`ID_TAREA` = $id");
+}
+
 
 /* ---------------------------------------------------------------------- Funciones Usuarios ---------------------------------------------------------------------- */
 
@@ -197,10 +204,10 @@ function listarUsuarios($bd) {
     echo "<tr>";
     // Columna usuario
     echo "<td>"; print $row['usuario'] . "\t"; echo "</td>";
-    // Columna contraseña
-    echo "<td>"; print $row['contrasena'] . "\t"; echo "</td>";
     // Columna nombre
     echo "<td>"; print $row['nombre'] . "\t"; echo "</td>";
+    // Columna contraseña
+    echo "<td>"; print $row['contrasena'] . "\t"; echo "</td>";
     // Columna email
     echo "<td>"; print $row['email'] . "\t"; echo "</td>";
 

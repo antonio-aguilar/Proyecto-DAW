@@ -24,7 +24,7 @@ CREATE TABLE `usuarios` (
 CREATE TABLE `tareas` (
   `ID_TAREA` int(5) NOT NULL,
   `TITULO` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(200) NOT NULL,
+  `DESCRIPCION` varchar(500) NOT NULL,
   `F_INICIO` date,
   `F_FIN` date,
   `COMPLETADA` tinyint(1) NOT NULL DEFAULT '0',
