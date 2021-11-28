@@ -47,7 +47,7 @@ function encabezado() {
           </li>-->
         </ul>
       </div>
-    </nav>
+
       <?php
 
         // Titulo del encabezado de la web
@@ -64,6 +64,8 @@ function encabezado() {
             echo "<a href=\"login.php\">Login</a>";
           }
         ?>
+    </nav>
+      
   </header>
     
   <div id="container">
