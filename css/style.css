@@ -1,8 +1,8 @@
-#main {
+/*#main {
     width: 1000px;
     margin: auto;
-    /*border-left: 1px solid #666;
-    border-right: 1px solid #666;*/
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
     background-color: #ffffff;
     padding: 4px 20px;
 }
@@ -20,8 +20,8 @@ body {
 }
 
 header {
-    /*background-color: #333;*/
-    background-color: #525864;
+    
+    background-color: black;
     color: #EEE;
     padding: 2px 10px;
     border-bottom: 5px solid #0b08c2;
@@ -58,9 +58,21 @@ h2>a, h3>a {
 }
 
 h3 {
-    /*font-size: 20px;*/
     color: blue;
+}*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 176px;
 }
+/*
+footer span {
+    padding-left: 5px;
+    border-left: 1px solid #0b08c2;
+}
+*/
 
 .boton_personalizado{
     text-decoration: none;
@@ -75,20 +87,4 @@ h3 {
 .boton_personalizado:hover{
     color: #1883ba;
     background-color: #ffffff;
-}
-
-footer {
-    background-color: #333;
-    border-top: 5px solid #0b08c2;
-    position: absolute;
-    width:100%;
-    text-align: center;
-    padding: 5px 5px;
-    color: #EEE;
-    font-size: 10px;
-}
-
-footer span {
-    padding-left: 5px;
-    border-left: 1px solid #0b08c2;
 }
