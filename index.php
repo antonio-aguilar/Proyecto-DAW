@@ -12,17 +12,7 @@ encabezado();
 
 /* Contenido de la web */
 
-// Si se ha enviado el formulario, usar la funcion añadirTarea(bd, descripcion)
-mostrarFormularioTareas();
-if (isset($_POST["enviar"])) {
-    $titulo = $_POST["titulo"];
-    $descripcion = $_POST["descripcion"];
-    $f_inicio = $_POST["f_inicio"];
-    $f_fin = $_POST["f_fin"];
-    añadirTarea($bd, $_SESSION['id_usuario'], $titulo, $descripcion, $f_inicio, $f_fin);
-}
 
-listarTareas($bd);
 
 /* Pie html de la web */
 pie();

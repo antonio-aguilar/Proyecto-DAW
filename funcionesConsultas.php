@@ -4,6 +4,9 @@
 require_once "bbdd/bd.php";
 
 /* ---------------------------------------------------------------------- LISTAR TAREAS ---------------------------------------------------------------------- */
+/*if (isset($_SESSION['usuario'])) {
+  $u = $_SESSION['usuario'];
+}*/
 
 // Funcion para ver las tareas pendientes sin completar
 function listarTareas($bd) {
@@ -11,7 +14,7 @@ function listarTareas($bd) {
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
   $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
-
+  //$sql = "SELECT ID_TAREA, TITULO, DESCRIPCION, F_INICIO, F_FIN, COMPLETADA, ID_USUARIO FROM tareas WHERE ID_USUARIO = '$u' AND completada = 0";
   // Encabezado de la tabla
   echo "<table border=1 cellpadding=4 cellspacing=0>";
   echo "<tr>
@@ -65,7 +68,7 @@ function listarTareas1($bd) {
   echo "<tr>
   <th colspan=8> Tareas </th>
   <tr>
-  <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Completar tarea </th> <th> Borrar tarea </th>
+  <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th>
   </tr>";
 
   // mostramos los datos en una tabla
@@ -88,10 +91,13 @@ function listarTareas1($bd) {
     } else {
       echo "<font color=\"#006600\">si</font>";
     } echo "</td>";
-    // Columna enlace para completar una tarea
+    /*// Columna enlace para completar una tarea
     echo "<td> <a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> Completar" . "</a></td>";
     // Columna enlace para completar una tarea
-    echo "<td> <a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> Borrar" . "</a></td>";
+    echo "<td> <a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> Borrar" . "</a></td>";*/
+
+    // Operaciones
+    echo "<td><a href=\"modificarTarea.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"><a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a><a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/completar.png\" width=\"25\" height=\"25\"> </a></td>";
 
     echo "</tr>";
   }
@@ -103,7 +109,7 @@ function listarTareas2($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
+  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 1";
 
   // Encabezado de la tabla
   echo "<table border=1 cellpadding=4 cellspacing=0>";
@@ -184,8 +190,38 @@ function modificarTarea($bd,$id,$titulo,$descripcion,$f_fin) {
 /* ---------------------------------------------------------------------- Funciones Usuarios ---------------------------------------------------------------------- */
 
 /* ----------------------------------- Listar Usuarios ----------------------------------- */
-// Funcion para ver todos los usuarios
+// Funcion para ver todos los usuarios, sin mostrar la contraseña
 function listarUsuarios($bd) {
+
+  echo "<h3>Listado de usuarios</h3>";
+  // Realizamos la consulta SQL
+  $sql = "SELECT usuario, nombre, email FROM usuarios";
+
+  // Encabezado de la tabla
+  echo "<table border=1 cellpadding=5 cellspacing=0>";
+  echo "<tr>
+  <th colspan=5> Usuarios </th>
+  <tr>
+  <th> Usuario </th> <th> Nombre </th> <th> Email </th>
+  </tr>";
+
+  // mostramos los datos en una tabla
+  foreach ($bd->query($sql) as $row) {
+    echo "<tr>";
+    // Columna id
+    echo "<td>"; print $row['usuario'] . "\t"; echo "</td>";
+    // Columna descripcion
+    echo "<td>"; print $row['nombre'] . "\t"; echo "</td>";
+    // Columna email
+    echo "<td>"; print $row['email'] . "\t"; echo "</td>";
+
+    echo "</tr>";
+  }
+  echo "</table>";
+}
+
+// Funcion para ver todos los usuarios
+function listarUsuarios1($bd) {
 
   echo "<h3>Listado de usuarios</h3>";
   // Realizamos la consulta SQL
@@ -208,36 +244,6 @@ function listarUsuarios($bd) {
     echo "<td>"; print $row['nombre'] . "\t"; echo "</td>";
     // Columna contraseña
     echo "<td>"; print $row['contrasena'] . "\t"; echo "</td>";
-    // Columna email
-    echo "<td>"; print $row['email'] . "\t"; echo "</td>";
-
-    echo "</tr>";
-  }
-  echo "</table>";
-}
-
-// Funcion para ver todos los usuarios, sin mostrar la contraseña
-function listarUsuarios1($bd) {
-
-  echo "<h3>Listado de usuarios</h3>";
-  // Realizamos la consulta SQL
-  $sql = "SELECT usuario, nombre, email FROM usuarios";
-
-  // Encabezado de la tabla
-  echo "<table border=1 cellpadding=5 cellspacing=0>";
-  echo "<tr>
-  <th colspan=5> Usuarios </th>
-  <tr>
-  <th> Usuario </th> <th> Nombre </th> <th> Email </th>
-  </tr>";
-
-  // mostramos los datos en una tabla
-  foreach ($bd->query($sql) as $row) {
-    echo "<tr>";
-    // Columna id
-    echo "<td>"; print $row['usuario'] . "\t"; echo "</td>";
-    // Columna descripcion
-    echo "<td>"; print $row['nombre'] . "\t"; echo "</td>";
     // Columna email
     echo "<td>"; print $row['email'] . "\t"; echo "</td>";
 

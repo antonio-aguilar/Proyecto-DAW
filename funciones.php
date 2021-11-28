@@ -36,9 +36,13 @@ function encabezado() {
           <li class="nav-item active">
             <a class="nav-link" href="tareas.php">Tareas <span class="sr-only">Tareas</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="usuarios.php">Usuarios</a>
-          </li>
+          <?php
+          if (isset($_SESSION['usuario'])) {
+            echo "<li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"usuarios.php\">Usuarios</a>
+          </li>";
+          }
+          ?>
           <li class="nav-item">
             <a class="nav-link" href="registro.php">Registro Usuario</a>
           </li>
@@ -68,17 +72,14 @@ function encabezado() {
       
   </header>
     
-  <div id="container">
-  <div id="main">
 <?php } ?>
 
 
 <?php 
 // Footer de la web
 function pie() { ?>
-    </div>
-    </div>
-    <footer class="bg-dark text-center text-white">
+
+    <footer class="footer-expand-lg footer-dark bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
