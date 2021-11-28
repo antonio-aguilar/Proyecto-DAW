@@ -46,7 +46,7 @@ function listarTareas($bd) {
     echo "<td> <a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> Borrar" . "</a></td>";
     */
     // Operaciones
-    echo "<td><a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a><a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/completar.png\" width=\"25\" height=\"25\"> </a></td>";
+    echo "<td><a href=\"modificarTarea.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"><a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a><a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/completar.png\" width=\"25\" height=\"25\"> </a></td>";
 
     echo "</tr>";
   }
@@ -157,8 +157,8 @@ function mostrarFormularioTareas() {
 
 /* ----------------------------------- AÑADIR TAREAS ----------------------------------- */
 // Funcion para añadir tareas
-function añadirTarea($bd, $titulo, $descripcion, $f_inicio, $f_fin) {
-  $insertarDescripcion = $bd->exec("INSERT INTO `tareas` (`titulo`,`descripcion`,`f_inicio`,`f_fin`) VALUES ('$titulo,$descripcion,$f_inicio,$f_fin')");
+function añadirTarea($bd, $id_usuario, $titulo, $descripcion, $f_inicio, $f_fin) {
+  $insertarDescripcion = $bd->exec("INSERT INTO `tareas` (`id_usuario`,`titulo`,`descripcion`,`f_inicio`,`f_fin`) VALUES ($id_usuario,'$titulo','$descripcion','$f_inicio','$f_fin')");
 }
 
 /* ----------------------------------- UPDATE completadas ----------------------------------- */
@@ -176,8 +176,8 @@ function borrarTareas($bd,$id) {
 /* ---------------------------------------------------------------------- Funciones Actualizar Tareas ---------------------------------------------------------------------- */
 
 // Funcion para modificar las tareas, ya sea el titulok la descripcion, la fecha de fin
-function modificarTarea($bd,$id) {
-  $modificarTareas = $bd->exec("UPDATE `tareas` SET `TITULO` = $titulo, `DESCRIPCION` = $descripcion, `F_FIN` = $f_fin WHERE `tareas`.`ID_TAREA` = $id");
+function modificarTarea($bd,$id,$titulo,$descripcion,$f_fin) {
+  $modificarTareas = $bd->exec("UPDATE `tareas` SET `TITULO` = '$titulo', `DESCRIPCION` = '$descripcion', `F_FIN` = '$f_fin' WHERE `tareas`.`ID_TAREA` = $id");
 }
 
 

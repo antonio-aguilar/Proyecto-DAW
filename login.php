@@ -14,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
 function user($bd) {
     
     // Sentencia sql para listar los usuarios
-    $sql = "SELECT usuario, contrasena FROM usuarios WHERE usuario = :usuario";
+    $sql = "SELECT id_usuario, usuario, contrasena FROM usuarios WHERE usuario = :usuario";
     // Consultas
     $consulta = $bd->prepare($sql);
     $consulta->execute(["usuario" => $_POST['usuario']]);
@@ -22,6 +22,7 @@ function user($bd) {
     // Si el usuario no esta vacia y la contraseña es correcta con la contraseña del usuario hara lo que le digamos
     if (!empty($usuario) and password_verify($_POST['password'], $usuario->contrasena)) {
         $_SESSION['usuario'] = $usuario->usuario;
+        $_SESSION['id_usuario'] = $usuario->id_usuario;
         header("Location: tareas.php");
     } else {
         //echo 'Usuario o clave incorrectos';

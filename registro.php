@@ -22,10 +22,16 @@ function registro($bd) {
   $email = $_POST['email'];
       
   // Sentencia que inserta la palabra en la base de datos
-  $sql = "INSERT INTO usuarios VALUES ($usuario,$contrasena,$nombre,$email)";
+  $sql = "INSERT INTO usuarios (usuario,contrasena,nombre,email) VALUES ('$usuario','$contrasena','$nombre','$email')";
   //echo $consulta;
+  try {
+    $sql = $bd->exec($sql);
 
-  
+    echo ("Usuario registrado con éxito");
+  } catch (\PDOException $e) {
+    echo ("Ha habido un error insertando el usuario: ".$e->getMessage());
+  }
+
   /*if ($sql = $bd->exec($sql)) {
     echo ("Usuario registrado con éxito");
   } else {

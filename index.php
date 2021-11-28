@@ -19,7 +19,7 @@ if (isset($_POST["enviar"])) {
     $descripcion = $_POST["descripcion"];
     $f_inicio = $_POST["f_inicio"];
     $f_fin = $_POST["f_fin"];
-    añadirTarea($bd, $titulo, $descripcion, $f_inicio, $f_fin);
+    añadirTarea($bd, $_SESSION['id_usuario'], $titulo, $descripcion, $f_inicio, $f_fin);
 }
 
 listarTareas($bd);
