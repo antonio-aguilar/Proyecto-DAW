@@ -11,6 +11,7 @@ require_once "funcionesConsultas.php";
 /* Cabecera html de la web */
 encabezado();
 
+// Despues de pulsar sobre modificarUsuario nos llevará a la pagina usuario
 if (isset($_POST['modificarUsuario'])) {
     header("Location: usuarios.php");
 }

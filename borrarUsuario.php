@@ -5,13 +5,13 @@ require_once "funciones.php";
 require_once "bbdd/bd.php";
 require_once "funcionesConsultas.php";
 
-// Recoger datos
+// Recoger datos necesarios
 $id = $_REQUEST["id"];
 
 // Modificamos la tarea
 borrarUsuario($bd,$id);
 
-// Volvemos a la pagina principal
-header("Location: index.php");
+// Volvemos a la pagina de los usuarios
+header("Location: usuarios.php");
 
 ?>

@@ -32,11 +32,6 @@ function registro($bd) {
     echo ("Ha habido un error insertando el usuario: ".$e->getMessage());
   }
 
-  /*if ($sql = $bd->exec($sql)) {
-    echo ("Usuario registrado con éxito");
-  } else {
-    echo ("Ha habido un error insertando el usuario");
-  }*/
 }
 
 // Titulo  
@@ -56,6 +51,7 @@ if (isset($_POST["registro"])) {
 }
 
 echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+
 // Pie de la web
 pie();
 

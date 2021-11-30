@@ -11,7 +11,7 @@ $id = $_REQUEST["id"];
 // Modificamos la tarea
 modificarCompletadas($bd,$id);
 
-// Volvemos a la pagina principal
-header("Location: index.php");
+// Volvemos a la pagina de tareas
+header("Location: tareas.php");
 
 ?>

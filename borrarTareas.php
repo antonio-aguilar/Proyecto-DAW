@@ -11,7 +11,7 @@ $id = $_REQUEST["id"];
 // Modificamos la tarea
 borrarTareas($bd,$id);
 
-// Volvemos a la pagina principal
-header("Location: index.php");
+// Volvemos a la pagina de las tareas
+header("Location: tareas.php");
 
 ?>

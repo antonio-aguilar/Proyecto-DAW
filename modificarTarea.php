@@ -10,7 +10,7 @@ require_once "funcionesConsultas.php";
 // Encabezado de la web
 encabezado();
 
-
+// Cuando el usuario pulse sobre el boton de modificarTarea se recogera los datos y se hará lo oportuno en la funcion modificarTarea
 if (isset($_POST['modificarTarea'])) {
     $id = $_GET["id"];
     $titulo = $_POST["titulo"];

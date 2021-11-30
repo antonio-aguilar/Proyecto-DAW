@@ -5,20 +5,18 @@ require_once "bbdd/bd.php";
 
 /* ---------------------------------------------------------------------- LISTAR TAREAS ---------------------------------------------------------------------- */
 
-
 // Funcion para ver las tareas pendientes sin completar
 function listarTareas($bd) {
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
   $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario] AND completada = 0";
   // Encabezado de la tabla
   echo "<table class=\"table\" border=1 cellpadding=4 cellspacing=0>";
   echo "<thead class=\"thead-dark\"><tr>
   <th colspan=8> Tareas </th>
   <tr>
-     <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
-  </tr></thead>"; //<th> Completar tarea </th> <th> Borrar tarea </th>        <th> ID </th>
+    <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
+  </tr></thead>";
 
   // mostramos los datos en una tabla
   foreach ($bd->query($sql) as $row) {
@@ -39,12 +37,7 @@ function listarTareas($bd) {
       echo "<font color=\"#ff0000\">no</font>";
     } else {
       echo "<font color=\"#006600\">si</font>";
-    } echo "</td>";/*
-    // Columna enlace para completar una tarea
-    echo "<td> <a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> Completar" . "</a></td>";
-    // Columna enlace para completar una tarea
-    echo "<td> <a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> Borrar" . "</a></td>";
-    */
+    } echo "</td>";
     // Operaciones
     echo "<td><a href=\"modificarTarea.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"><a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a><a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/completar.png\" width=\"25\" height=\"25\"> </a></td>";
 
@@ -60,7 +53,6 @@ function listarTareas1($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas";
   $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario]";
 
   // Encabezado de la tabla
@@ -91,10 +83,6 @@ function listarTareas1($bd) {
     } else {
       echo "<font color=\"#006600\">si</font>";
     } echo "</td>";
-    /*// Columna enlace para completar una tarea
-    echo "<td> <a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> Completar" . "</a></td>";
-    // Columna enlace para completar una tarea
-    echo "<td> <a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> Borrar" . "</a></td>";*/
 
     // Operaciones
     echo "<td><a href=\"modificarTarea.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"><a href=\"borrarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a><a href=\"completarTareas.php?id=" . $row['id_tarea'] . "\"> <img src=\"images/iconos/completar.png\" width=\"25\" height=\"25\"> </a></td>";
@@ -111,7 +99,6 @@ function listarTareas2($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 1";
   $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario] AND completada = 1";
 
   // Encabezado de la tabla
@@ -154,7 +141,7 @@ function mostrarFormularioTareas() {
   echo "<h3>Añadir tarea</h3>";
 
   // Formulario  tareas
-  echo "<form name=\"formulario1\" action=\"index.php\" method=\"post\">";
+  echo "<form name=\"formulario1\" action=\"tareas.php\" method=\"post\">";
   echo "<p>Titulo: <input type=\"text\" name=\"titulo\"></p>";
   echo "<p>Descripción: <input type=\"text\" name=\"descripcion\"></p>";
   echo "<p>Fecha inicio: <input type=\"date\" name=\"f_inicio\"></p>";
