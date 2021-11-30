@@ -14,9 +14,16 @@ Modelo Relacional
 
 ### Datos del proyecto
 
-```
-Este proyecto es de un gestor de tareas realizado en html, css, javascript en el lado del frontend, php en el lado del backend, y conexion a mysql para la base de datos.
-```
+Este proyecto es de un gestor de tareas realizado con los siguiente lenguajes en el frontend:
+ - HTML
+ - CSS
+ - JavaScript
+
+Y en el lado del backend:
+ - PHP 
+
+Y la conexion a la base de datos con:
+ - MySQL
 
 **Equipo de desarrollo**
 
