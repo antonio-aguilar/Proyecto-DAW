@@ -4,9 +4,13 @@ Dicho proyecto es una solución fácil, gratuita y flexible para gestionar proye
 
 ## Base de Datos
 
-Entidad-Relación ![https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Diagrama%20Entidad-Relacion.png]()
+Entidad-Relación 
 
-Modelo Relacional ![](https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Modelo%20Relacional.png)
+![](https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Diagrama%20Entidad-Relacion.png)
+
+Modelo Relacional 
+
+![](https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Modelo%20Relacional.png)
 
 
 ```
