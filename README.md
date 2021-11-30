@@ -2,17 +2,12 @@
 Dicho proyecto es una solución fácil, gratuita y flexible para gestionar proyectos y poder organizar tareas del día a día o tareas a largo plazo, ya sea una persona o un equipo de personas.
 
 
-## Introducción
+## Base de Datos
 
-Para trabajar con el entorno de ejecución Node.js y su gestor de paquetes podemos realizar la instalación desde los repositorios de Ubuntu o derivadas con:
+Entidad-Relación ![https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Diagrama%20Entidad-Relacion.png]()
 
-```bash
-sudo  apt  install  nodejs  npm
-```
+Modelo Relacional ![](https://github.com/antonio-aguilar/Proyecto-DAW/blob/master/bbdd/Modelo%20Relacional.png)
 
-## Inicio de un proyecto
-
-Para iniciar el proyecto crearemos y accederemos a la carperta de nuestro proyecto y después iniciaremos el proyecto con:
 
 ```
 mkdir  PROYECTO-DAW
