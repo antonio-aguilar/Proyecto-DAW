@@ -8,16 +8,10 @@ require_once "bbdd/bd.php";
 
 // Funcion para ver las tareas pendientes sin completar
 function listarTareas($bd) {
-  /*if (isset($_SESSION['usuario'])) {
-    $usuario = $_SESSION['usuario'];
-    $id_u = $_SESSION['usuario'];
-
-    $select = "SELECT ID_USUARIO, USUARIO FROM USUARIOS WHERE $id_u";
-  }*/
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
-  //$sql = "SELECT ID_TAREA, TITULO, DESCRIPCION, F_INICIO, F_FIN, COMPLETADA, ID_USUARIO FROM tareas WHERE ID_USUARIO = $select AND completada = 0";
+  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
+  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario] AND completada = 0";
   // Encabezado de la tabla
   echo "<table class=\"table\" border=1 cellpadding=4 cellspacing=0>";
   echo "<thead class=\"thead-dark\"><tr>
@@ -66,7 +60,8 @@ function listarTareas1($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas";
+  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas";
+  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario]";
 
   // Encabezado de la tabla
   echo "<table class=\"table\" border=1 cellpadding=4 cellspacing=0>";
@@ -116,7 +111,8 @@ function listarTareas2($bd) {
 
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
-  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 1";
+  //$sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 1";
+  $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada, id_usuario FROM tareas WHERE id_usuario = $_SESSION[id_usuario] AND completada = 1";
 
   // Encabezado de la tabla
   echo "<table class=\"table\" border=1 cellpadding=4 cellspacing=0>";
