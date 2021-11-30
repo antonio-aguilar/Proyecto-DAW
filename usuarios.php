@@ -11,21 +11,20 @@ require_once "funcionesConsultas.php";
 /* Cabecera html de la web */
 encabezado();
 
-/*
+
 // Listar Usuarios, si esta logueado saldra el campo de la contraseña de lo contrario no
 if (isset($_SESSION['usuario'])) {
-    listarUsuarios($bd);
-} else {
     listarUsuarios1($bd);
-}*/
-
-// Listar los usuarios que existen actualmente en la web
-listarUsuarios($bd);
+} else {
+    listarUsuarios($bd);
+}
 
 
 // Incluir algunos usuarios de prueba con el siguiente archivo php
 //include "bbdd/carga.php";
 
+
+echo "<br/><br/><br/><br/><br/><br/><br/><br/>";
 /* Pie html de la web */
 pie();
 

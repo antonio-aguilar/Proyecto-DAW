@@ -36,9 +36,9 @@ if (isset($_POST["login"])) {
 }
 
 // Encabezado de la web
-encabezado();
+encabezado1();
 
-// Titulo  
+// Titulo
 echo "<h3>Login sesion</h3>";
 
 // Formulario
@@ -48,6 +48,7 @@ echo "<p>Contraseña: <input type=\"password\" name=\"password\" required></p>";
 echo "<p><input class=\"boton_personalizado\" type=\"submit\" name=\"login\" value=\"login\"></p>";
 echo "</form>";
 
+echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
 // Pie de la web
 pie();
 

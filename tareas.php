@@ -35,6 +35,7 @@ if (isset($_GET["mostrar_completadas"]) == 1 && isset($_SESSION['usuario'])) {
 // Enlace para mostrar las tareas completadas u ocultar las ya completadas
 if (isset($_SESSION['usuario'])) {
     echo "<br /> <a href=\"tareas.php?mostrar_completadas=1\"> Mostrar Completadas </a> / <a href=\"tareas.php\"> Ocultar Completadas </a>";
+    echo "<br/><br/><br/><br/><br/><br/><br/>";
 }
 
 /* Pie html de la web */

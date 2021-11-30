@@ -55,6 +55,7 @@ if (isset($_POST["registro"])) {
   registro($bd);
 }
 
+echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
 // Pie de la web
 pie();
 
