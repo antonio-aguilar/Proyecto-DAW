@@ -27,7 +27,7 @@ echo "<form name=\"modificarTarea\" action=\"".$_SERVER['PHP_SELF'] . '?' . $_SE
 echo "<p>Titulo: <input type=\"text\" name=\"titulo\" required></p>";
 echo "<p>Descripcion: <input type=\"text\" name=\"descripcion\" required></p>";
 echo "<p>Fecha fin: <input type=\"date\" name=\"f_fin\" required></p>";
-echo "<p><input class=\"boton_personalizado\" type=\"submit\" name=\"modificarTarea\" value=\"modificarTarea\"></p>";
+echo "<p><input class=\"boton_personalizado\" type=\"submit\" name=\"modificarTarea\" value=\"Modificar\"></p>";
 echo "</form>";
 
 
