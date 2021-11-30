@@ -10,25 +10,27 @@ require_once "bbdd/bd.php";
 function listarTareas($bd) {
   /*if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
-    $id = "SELECT ID_USUARIO FROM USUARIOS WHERE $usuario";
+    $id_u = $_SESSION['usuario'];
+
+    $select = "SELECT ID_USUARIO, USUARIO FROM USUARIOS WHERE $id_u";
   }*/
   echo "<h3>Listado de tareas</h3>";
   // Realizamos la consulta SQL
   $sql = "SELECT id_tarea, titulo, descripcion, f_inicio, f_fin, completada FROM tareas WHERE completada = 0";
-  //$sql = "SELECT ID_TAREA, TITULO, DESCRIPCION, F_INICIO, F_FIN, COMPLETADA, ID_USUARIO FROM tareas WHERE ID_USUARIO = $id AND completada = 0";
+  //$sql = "SELECT ID_TAREA, TITULO, DESCRIPCION, F_INICIO, F_FIN, COMPLETADA, ID_USUARIO FROM tareas WHERE ID_USUARIO = $select AND completada = 0";
   // Encabezado de la tabla
   echo "<table class=\"table\" border=1 cellpadding=4 cellspacing=0>";
   echo "<thead class=\"thead-dark\"><tr>
   <th colspan=8> Tareas </th>
   <tr>
-    <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
-  </tr></thead>"; //<th> Completar tarea </th> <th> Borrar tarea </th>
+     <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th> 
+  </tr></thead>"; //<th> Completar tarea </th> <th> Borrar tarea </th>        <th> ID </th>
 
   // mostramos los datos en una tabla
   foreach ($bd->query($sql) as $row) {
     echo "<tr>";
     // Columna id
-    echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
+    //echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
     // Columna titulo
     echo "<td>"; print $row['titulo'] . "\t"; echo "</td>";
     // Columna descripcion
@@ -71,14 +73,14 @@ function listarTareas1($bd) {
   echo "<thead class=\"thead-dark\"><tr>
   <th colspan=8> Tareas </th>
   <tr>
-  <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th>
-  </tr></thead>";
+   <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th> <th> Operaciones </th>
+  </tr></thead>";//<th> ID </th>
 
   // mostramos los datos en una tabla
   foreach ($bd->query($sql) as $row) {
     echo "<tr>";
     // Columna id
-    echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
+    //echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
     // Columna titulo
     echo "<td>"; print $row['titulo'] . "\t"; echo "</td>";
     // Columna descripcion
@@ -121,14 +123,14 @@ function listarTareas2($bd) {
   echo "<thead class=\"thead-dark\"><tr>
   <th colspan=8> Tareas </th>
   <tr>
-  <th> ID </th> <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th>
-  </tr></thead>";
+   <th> Titulo </th> <th> Descripción </th> <th> Fecha Inicio </th> <th> Fecha Fin </th> <th> Completada </th>
+  </tr></thead>";//<th> ID </th>
 
   // mostramos los datos en una tabla
   foreach ($bd->query($sql) as $row) {
     echo "<tr>";
     // Columna id
-    echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
+    //echo "<td>"; print $row['id_tarea'] . "\t"; echo "</td>";
     // Columna titulo
     echo "<td>"; print $row['titulo'] . "\t"; echo "</td>";
     // Columna descripcion
@@ -182,6 +184,11 @@ function modificarCompletadas($bd,$id) {
 // Funcion para borrar tareas
 function borrarTareas($bd,$id) {
   $borrar = $bd->exec("DELETE FROM `tareas` WHERE `tareas`.`id_tarea` = $id");
+}
+
+// Funcion para borrar tareas
+function borrarUsuario($bd,$id) {
+  $borrar = $bd->exec("DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario` = $id");
 }
 
 /* ---------------------------------------------------------------------- Funciones Actualizar Tareas y Usuarios ---------------------------------------------------------------------- */
@@ -257,7 +264,7 @@ function listarUsuarios1($bd) {
     echo "<td>"; print $row['email'] . "\t"; echo "</td>";
 
     // Operaciones
-    echo "<td><a href=\"modificarUsuario.php?id=" . $row['id_usuario'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"></td>";
+    echo "<td><a href=\"modificarUsuario.php?id=" . $row['id_usuario'] . "\"> <img src=\"images/iconos/editar.png\" width=\"25\" height=\"25\"><a href=\"borrarUsuario.php?id=" . $row['id_usuario'] . "\"> <img src=\"images/iconos/borrar.png\" width=\"25\" height=\"25\"> </a></td>";
 
     echo "</tr>";
   }
