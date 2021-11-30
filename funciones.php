@@ -27,7 +27,7 @@ function encabezado() {
   <header>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="btn btn-outline-light btn-floating m-1" href="index.php" role="button"><img src="images/img/Logo.png"
+    <a class="btn btn-outline-light btn-floating m-1" href="index.php" role="button"><img src="images/img/logo.png"
                 alt="logo" class="social-icons" width="25" height="25"></a>
       <a class="navbar-brand" href="index.php">AGKAN</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@ function encabezado1() {
 
   <header>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="btn btn-outline-light btn-floating m-1" href="index.php" role="button"><img src="images/img/Logo.png"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="btn btn-outline-light btn-floating m-1" href="index.php" role="button"><img src="images/img/logo.png"
                 alt="logo" class="social-icons" width="25" height="25"></a>
       <a class="navbar-brand" href="index.php">AGKAN</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
