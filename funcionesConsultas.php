@@ -145,7 +145,7 @@ function mostrarFormularioTareas() {
   echo "<p>Titulo: <input type=\"text\" name=\"titulo\"></p>";
   echo "<p>Descripción: <input type=\"text\" name=\"descripcion\"></p>";
   echo "<p>Fecha inicio: <input type=\"date\" name=\"f_inicio\"></p>";
-  echo "<p>Fecha fin: <input type=\"date\" name=\"f_fin\"></p>";
+  echo "<p>Fecha fin: <input type=\"date\" name=\"f_fin\" id=\"f_fin\"></p>";
   echo "<p><input class=\"boton_personalizado\" type=\"submit\" name=\"enviar\" value=\"Enviar\"></p>";
   echo "</form>";
 
@@ -154,7 +154,13 @@ function mostrarFormularioTareas() {
 /* ----------------------------------- AÑADIR TAREAS ----------------------------------- */
 // Funcion para añadir tareas
 function añadirTarea($bd, $id_usuario, $titulo, $descripcion, $f_inicio, $f_fin) {
-  $insertarDescripcion = $bd->exec("INSERT INTO `tareas` (`id_usuario`,`titulo`,`descripcion`,`f_inicio`,`f_fin`) VALUES ($id_usuario,'$titulo','$descripcion','$f_inicio','$f_fin')");
+  // Si la fecha de inicio es inferior a la de fin no se inserta la tarea y saldra un mensaje de error por pantalla
+  if ($f_inicio < $f_fin) {
+    $insertarDescripcion = $bd->exec("INSERT INTO `tareas` (`id_usuario`,`titulo`,`descripcion`,`f_inicio`,`f_fin`) VALUES ($id_usuario,'$titulo','$descripcion','$f_inicio','$f_fin')");
+  } else {
+    echo "La fecha de fin debe de ser mayor a la de inicio <br/><br/>";
+  }
+  
 }
 
 /* ----------------------------------- UPDATE completadas ----------------------------------- */

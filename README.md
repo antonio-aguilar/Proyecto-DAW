@@ -25,10 +25,6 @@ Y en el lado del backend:
 Y la conexion a la base de datos con:
  - MySQL
 
-## Despliegue
-Está desplegado en clouding.io, se puede acceder desde:
-http://217.71.206.130/Proyecto-DAW/index.php
-
 **Equipo de desarrollo**
 
 - :computer: Antonio Manuel Aguilar Caro
