@@ -29,6 +29,7 @@ Y la conexion a la base de datos con:
 Está desplegado en clouding.io, se puede acceder desde:
 http://217.71.206.130/agkan/index.php
 
+
 **Equipo de desarrollo**
 
 - :computer: Antonio Manuel Aguilar Caro
