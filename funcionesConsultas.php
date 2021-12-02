@@ -155,7 +155,7 @@ function mostrarFormularioTareas() {
 // Funcion para añadir tareas
 function añadirTarea($bd, $id_usuario, $titulo, $descripcion, $f_inicio, $f_fin) {
   // Si la fecha de inicio es inferior a la de fin no se inserta la tarea y saldra un mensaje de error por pantalla
-  if ($f_inicio < $f_fin) {
+  if ($f_inicio =< $f_fin) {
     $insertarDescripcion = $bd->exec("INSERT INTO `tareas` (`id_usuario`,`titulo`,`descripcion`,`f_inicio`,`f_fin`) VALUES ($id_usuario,'$titulo','$descripcion','$f_inicio','$f_fin')");
   } else {
     echo "La fecha de fin debe de ser mayor a la de inicio <br/><br/>";
